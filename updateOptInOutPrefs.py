@@ -63,24 +63,24 @@ def main():
                     attr = []
                     attr.append('{"optInOutPreferences":')
                     if record['dataSharingStatus'] == None:
-                        attr.append(Ax)
-                        attr.append('{}"}}'.format(record['created']))
+                        attr.append(Ax + '{}"}}'.format(record['created']))
+#                        attr.append('{}"}}'.format(record['created']))
                     elif record['dataSharingStatus'] == OPTED_OUT:
-                        attr.append(Ay)
-                        attr.append('{}"}}'.format(datestr))
+                        attr.append(Ay + '{}"}}'.format(datestr))
+#                        attr.append('{}"}}'.format(datestr))
 
                     if record['targetedAdsStatus'] == None:
-                        attr.append(', ')
-                        attr.append(Bx)
-                        attr.append('{}"}},'.format(record['created']))
-                        attr.append(Cx)
-                        attr.append('{}"}}'.format(record['created']))
+                        attr.append(', ' + Bx + '{}"}},'.format(record['created']) + Cx + '{}"}}'.format(record['created']))
+#                        attr.append(Bx)
+ #                       attr.append('{}"}},'.format(record['created']))
+#                        attr.append(Cx)
+#                        attr.append('{}"}}'.format(record['created']))
                     elif record['targetedAdsStatus'] == OPTED_OUT:
-                        attr.append(', ')
-                        attr.append(By)
-                        attr.append('{}"}},'.format(datestr))
-                        attr.append(Cy)
-                        attr.append('{}"}}'.format(datestr))
+                        attr.append(', ' + By + '{}"}},'.format(datestr) + Cy + '{}"}}'.format(datestr))
+#                        attr.append(By)
+#                        attr.append('{}"}},'.format(datestr))
+#                        attr.append(Cy)
+#                        attr.append('{}"}}'.format(datestr))
 
 #                    attr.append('], "profiles": [{}]}')
                     attr.append(']}')
@@ -105,11 +105,11 @@ def main():
                     print("Skipping: {}, no changes needed".format(row[uuid]))
                     successwriter.writerow([row['uuid'], 'no changes needed'])
 
-                csv_success.flush()
+                #csv_success.flush()
             else:
                 print("Error: user record not found - uuid: ", row['uuid'])
                 errorwriter.writerow([row['uuid'], 'entity.find', "User record not found"])
-                csv_error.flush()
+                #csv_error.flush()
 
     csv_success.close()
     csv_error.close()
