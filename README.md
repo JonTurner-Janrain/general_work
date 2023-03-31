@@ -1,6 +1,8 @@
 # general_work
 a place for various crap that doesn't fit elsewhere
 
+# getUserEmails.py
+returns all user email addresses for a given capture app
 
 # getUserRecordIds.py
 This is a simple script to query all records from an app and create a new CSV file that contains the following fields from each record: id, UUID
