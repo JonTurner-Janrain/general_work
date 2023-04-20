@@ -13,5 +13,5 @@ for generating user-specific JWTs for Hosted Login
 # record-generator
 Taking JP's original work and simplifying it to make it more generic. Makes very simple records 
 
-#server.py
+# server.py
 simple local server for listening on specified port
